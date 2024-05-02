@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleshome.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Shalaken!</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js.js"></script>
+    <style>
+      /* Add the new styles here */
+      .menu-icon {
+        font-size: 1.5em;
+        cursor: pointer;
+        display: none;
+      }
+
+      @media screen and (max-width: 700px) {
+        .navbar {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .navbar.active {
+          display: flex;
+        }
+
+        .menu-icon {
+          display: block;
+          position: fixed;
+          top: 10px;
+          left: 10px;
+        }
+
+        ul {
+          width: 100%;
+          text-align: center;
+        }
+
+        li {
+          margin: 15px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li class="home">
+          <a href="https://shalaken.netlify.app/" class="nav-link home-link">Home</a>
+        </li>
+        <li class="purchase">
+          <a href="https://dexscreener.com/base/0x7d18e63b5c400b52bda32e11b713123daf977b10" class="nav-link">Purchase $SHLKN</a>
+        </li>     
+      </ul>
+    </nav>
+
+    <h1 class="home-title">
+      <span>Welcome to</span>
+      <span>Shalaken</span>
+    </h1>
+
+    <style>
+      .definition-section {
+        text-align: center;
+        color: white;
+        padding: 20px;
+        font-size: 1.5em; /* Twice as large */
+        max-width: 700px; /* Maximum width */
+        margin: 0 auto; /* Center horizontally */
+      }
+    </style>
+    
+    <img src="homeimages/Shalaken.png" alt="Image Description" class="floating-image" />
+    
+    <div class="definition-section">
+      <p>Dev will not care about project - strictly for community takeover.</p>
+      <p><strong>Pronunciation:</strong> [shah-lack-en]</p>
+      <p><strong>Definition:</strong> Refers to a defeat or loss experienced, typically used when someone is defeated or outperformed.</p>
+      <p><strong>Usage:</strong> He got liquidated - He really got a "Shalaken"</p>
+      <p><strong>CA:</strong> 0x08fDB1799090C153D1E1E5905D7FE0F80495B6d6</p>
+    </div>
+    
+    <div class="buttonshome">
+      <button class="twitter-button" onclick="window.location.href='https://twitter.com/shalakenonbase'">Twitter</button>
+      <button class="telegram-button" onclick="window.location.href='https://t.me/shalaken'">Telegram</button>
+      <button class="dexcreener-button" onclick="window.location.href='https://dexscreener.com/base/0x08fdb1799090c153d1e1e5905d7fe0f80495b6d6'">Buy $SHLKN</button>
+    </div>
+    
+    
+
+    <div class="disclaimer">
+      <p>
+        $SHLKN is just an ERC20 meme coin with no intrinsic value or expectation
+        of financial return. It’s built by a passionate set of contributors
+        solely for entertainment and community engagement purposes.
+      </p>
+    </div>
+
+    <!-- Add this script before the closing tag -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        animateTitle();
+      });
+
+      function animateTitle() {
+        const title = document.querySelector(".home-title");
+        const spans = title.querySelectorAll("span");
+        let delay = 0;
+
+        spans.forEach((span) => {
+          setTimeout(() => {
+            span.style.animation = "typing 1s ease-out forwards";
+          }, delay);
+          delay += 100;
+        });
+      }
+
+      function toggleMenu() {
+        console.log("Toggle menu clicked!");
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("active");
+      }
+      // Add this script for highlighting the active link
+      document.addEventListener("DOMContentLoaded", function () {
+        highlightActiveLink();
+      });
+
+      function highlightActiveLink() {
+        const currentPage = window.location.href;
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          if (currentPage.includes(link.getAttribute("href"))) {
+            link.parentElement.classList.add("active");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
